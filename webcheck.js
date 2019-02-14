@@ -1,6 +1,8 @@
 #!/usr/local/bin/node
 'use strict'
 
+require('dotenv').config;
+
 const http = require('http');
 const cheerio = require('cheerio');
 const nodemailer = require('nodemailer');
