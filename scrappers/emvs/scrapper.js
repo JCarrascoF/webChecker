@@ -7,6 +7,8 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 
+const moment = require('moment')
+
 const ENV = require('../../utils/envProcessor');
 
 class scrapper {
@@ -144,7 +146,7 @@ class scrapper {
     run() {
         (async () => {
             try {
-                console.log('-- RUNNNING emvs scrapper...');
+                console.log(`\n[${moment().utc().format()}]\n-- RUNNNING emvs scrapper...`);
                 let response = await (this._doRequest())
                 let currentContent = this._extractInfo(response);
                 let newItems = await(this._compareCached(currentContent));
