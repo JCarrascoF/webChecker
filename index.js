@@ -39,9 +39,7 @@ const transporter = nodemailer.createTransport({
         for (let i = 0; i < scrappersDirs.length; i++) {
             let scrapperDirPath = path.join(ENV.SCRAPPERS_ROOT_PATH, scrappersDirs[i], 'scrapper.js');
             fs.access(scrapperDirPath, (err) => {
-                if (err) {
-                    throw err
-                }
+                if (err) throw err;
                 const Scrapper = require(`./${scrapperDirPath}`);
                 const scrapper = new Scrapper(transporter);
                 scrapper.run();
